@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "MultiAppDemo"
 include(":app")
+include(":app-second")
+include(":common")
