@@ -9,14 +9,14 @@ import javax.inject.Inject
 class UserRepository @Inject constructor() {
     private val users: MutableList<User> = mutableListOf()
 
-    fun getUser(index: Int): Flow<User> = flow {
+    fun getUsers(): Flow<List<User>> = flow {
         delay(100)
-        users.getOrNull(index)?.let { emit(it) }
-            ?: throw IllegalArgumentException("User not found")
+        emit(users)
     }
 
     fun saveUser(user: User): Flow<Unit> = flow {
         delay(100)
         users.add(user)
+        emit(Unit)
     }
 }
